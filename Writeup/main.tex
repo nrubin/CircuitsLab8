@@ -28,6 +28,7 @@
 \newcommand{\Mtwo}{{$M_{2}$}}
 \newcommand{\Mthree}{{$M_{3}$}}
 \newcommand{\Mfour}{{$M_{4}$}}
+\newcommand{\Mb}{{$M_{b}$}}
 \title{Circuits Lab 8}
 \author{Cory Dolphin and Noam Rubin}
 \date{April 14, 2013}
@@ -121,7 +122,8 @@ So we connected the output and the input of the differential amplifier and measu
 
 We can also see that the near-unity gain between \Vout and \Vin breaks down for values of \Vin near \Vdd. This could be due to the bias transistor not passing as much current as \Mone can pass, so as the gate voltage of \Mone increases, \Ib increases less than expected, which causes \Vout to increase less than linearly.
 
-\textit{How does the offset voltage change as Vin changes?}
+Since we expected $\frac{V_{out}}{V_{in}} \approx 1$, we next looked at the offset voltage of the bias transistor ($V_{out} - V_{in}$) in order to gain further insight into how our unity-gain buffer behaves compared to the ideal form of the circuit, which would have an offset voltage of 0.
+
 \begin{figure}[H]
 \centering
 \includegraphics[width=\linewidth]{../Figures/Exp3P2.eps}
@@ -129,8 +131,9 @@ We can also see that the near-unity gain between \Vout and \Vin breaks down for 
 \label{fig:exp3p2}
 \end{figure}
 
+Figure \ref{fig:exp2p2} shows the offset voltage of the buffer as a function of \Vin, and some interesting trends appear. We again see large deviations from the theoretical ideal at values of \Vin near ground and near \Vdd, which could be explained by leakage current and a saturated \Mb, respectively.
 
-
+The trend in the middle of the data seems to take two forms: for $0.5 < V_{in} < 1.5$, the offset voltage has a small positive slope, but for $1.5 < V_{in} < 4.5$, this slope becomes negative, and the trend is far more linear. Generally, however, the offset voltage hovers around 0, and deviates by about $\pm 0.02 V$ throughout the region of linear operation that we saw in figure \ref{fig:exp3p1}. 
 
 
 \end{document}
