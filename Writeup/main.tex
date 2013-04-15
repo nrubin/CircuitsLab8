@@ -15,6 +15,8 @@
 \newcommand{\Ione}{{$I_{1}$}}
 \newcommand{\Vdd}{{$V_{dd}$}}
 \newcommand{\Iout}{{$I_{out}$}}
+\newcommand{\Vout}{{$V_{out}$}}
+\newcommand{\Vin}{{$V_{in}$}}
 \newcommand{\gm}{{$g_{m}$}}
 \newcommand{\Vdm}{{$V_{dm}$}}
 \newcommand{\Idm}{{$I_{dm}$}}
@@ -22,6 +24,11 @@
 \newcommand{\Ib}{{$I_{b}$}}
 \newcommand{\nMOS}{{\textit{n}MOS }}
 \newcommand{\pMOS}{{\textit{p}MOS }}
+\newcommand{\Mone}{{$M_{1}$}}
+\newcommand{\Mtwo}{{$M_{2}$}}
+\newcommand{\Mthree}{{$M_{3}$}}
+\newcommand{\Mfour}{{$M_{4}$}}
+\newcommand{\Mb}{{$M_{b}$}}
 \title{Circuits Lab 8}
 \author{Cory Dolphin and Noam Rubin}
 \date{\today}
@@ -30,7 +37,21 @@
 
 \maketitle
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\linewidth]{../Figures/Lab8Schematic}
+\caption{A schematic of the differential amplifier used in this lab, with some extra voltages and currents annotated for the purpose of analysis.}
+\label{fig:lab8schem}
+\end{figure}
+
+
 \section*{Experiment 1}
+
+
+\textit{Ideally, Vout should be about as far below Vdd as V b is above ground and the
+common-mode gain should be negative with a magnitude on the order of a few percent. How
+does your common-mode gain compare to that? If it differs, why do you think that is the
+case?}
 
 \begin{figure}[H]
 \centering
@@ -38,6 +59,9 @@
 \caption{Something descriptive..}
 \label{fig:exp1p1}
 \end{figure}
+
+\textit{Does the behavior of the circuit dffer substantially when biased in strong inversion compared to that which it exhibits in
+weak or moderate inversion?}
 
 \begin{figure}[H]
 \centering
@@ -62,7 +86,44 @@
 
 \section*{Experiment 2}
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{../Figures/Exp2P1.eps}
+\caption{Something descriptive..}
+\label{fig:exp2p1}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{../Figures/Exp2P2.eps}
+\caption{Something descriptive..}
+\label{fig:exp2p2}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{../Figures/Exp2P3.eps}
+\caption{Something descriptive..}
+\label{fig:exp2p3}
+\end{figure}
+
+\textit{How does this value of for the differential-mode gain compare to that which you obtained directly from the slope of the
+VTC? How does the differential-mode voltage gain of the circuit compare to the commonmode voltage gain of the circuit that you found in Experiment 1? Compute a CMRR for the circuit from the ratio of the differential-mode voltage gain to the common-mode voltage
+gain that you found in Experiment 1.}
+
+
 \section*{Experiment 3} 
+
+\textit{Is the incremental gain close to unity?}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\linewidth]{../Figures/Voltage-follower}
+\caption{Simple voltage follower we built in Experiment 3.}
+\label{fig:voltagefollow}
+\end{figure}
+
+The last experiment we conducted involved connecting the inverting input of the differential amplifier, \Vtwo, to the outpout of the differential amplifier, \Vout. We expected the circuit to then behave like a unity-gain voltage follower, as seen in figure \ref{fig:voltagefollow}. In a unity-gain voltage follower, the output follows the non-inverting input, so we expect the ratio between \Vout and \Vin to be 1.
 
 \begin{figure}[H]
 \centering
@@ -71,6 +132,12 @@
 \label{fig:exp3p1}
 \end{figure}
 
+So we connected the output and the input of the differential amplifier and measured \Vout as we swept \Vin from ground to \Vdd. The results are shown in figure \ref{fig:exp3p1}, in addition to a line fitted to the linear region of the voltage transfer characteristic. We extract the slope of this line and found that the actual gain of the follower was 0.98834, very close to the anticipated gain of 1. The slight deviation, a little over 1\%, can likely be attributed to experimental error. The behavior of the circuit for small values of \Vin can likely be attributed to both \Mone and \Mtwo operating in weak inversion, which causes \Iout to be the difference between their very small leakage currents, which therefore causes \Vout to change little for $0 \leq V_{in} \leq \approx 0.5 V.$
+
+We can also see that the near-unity gain between \Vout and \Vin breaks down for values of \Vin near \Vdd. This could be due to the bias transistor not passing as much current as \Mone can pass, so as the gate voltage of \Mone increases, \Ib increases less than expected, which causes \Vout to increase less than linearly.
+
+Since we expected $\frac{V_{out}}{V_{in}} \approx 1$, we next looked at the offset voltage of the bias transistor ($V_{out} - V_{in}$) in order to gain further insight into how our unity-gain buffer behaves compared to the ideal form of the circuit, which would have an offset voltage of 0.
+
 \begin{figure}[H]
 \centering
 \includegraphics[width=\linewidth]{../Figures/Exp3P2.eps}
@@ -78,8 +145,9 @@
 \label{fig:exp3p2}
 \end{figure}
 
+Figure \ref{fig:exp2p2} shows the offset voltage of the buffer as a function of \Vin, and some interesting trends appear. We again see large deviations from the theoretical ideal at values of \Vin near ground and near \Vdd, which could be explained by leakage current and a saturated \Mb, respectively.
 
-
+The trend in the middle of the data seems to take two forms: for $0.5 < V_{in} < 1.5$, the offset voltage has a small positive slope, but for $1.5 < V_{in} < 4.5$, this slope becomes negative, and the trend is far more linear. Generally, however, the offset voltage hovers around 0, and deviates by about $\pm 0.02 V$ throughout the region of linear operation that we saw in figure \ref{fig:exp3p1}. 
 
 
 \end{document}
