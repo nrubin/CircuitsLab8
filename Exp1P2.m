@@ -18,7 +18,7 @@ load('Data/Experiment1Part4Data.mat')
 plot(V1(6:interval:end),Vout(6:interval:end), '--go','MarkerSize',10); hold on;
 
 
-title('Voltage transfer characteristics');
+title('Voltage transfer characteristics for below threshold');
 xlabel('Noninverting input voltage V_{1} (V)');
 ylabel('Output Voltage (V)');
 
