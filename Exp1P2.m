@@ -9,15 +9,15 @@ interval = 10;
 
 
 load('Data/Experiment1Part2Data.mat')
-plot(V1(1:interval:end),Vout(1:interval:end), '--ro','MarkerSize',10); hold on;
+plot(V1(1:interval:end),Vout(1:interval:end), '--ro','MarkerSize',10, 'LineWidth', 1.5); hold on;
 
 load('Data/Experiment1Part3Data.mat')
-plot(V1(3:interval:end),Vout(3:interval:end), '--bo','MarkerSize',10); hold on;
+plot(V1(3:interval:end),Vout(3:interval:end), '--bo','MarkerSize',10, 'LineWidth', 1.5); hold on;
 
 load('Data/Experiment1Part4Data.mat')
-plot(V1(6:interval:end),Vout(6:interval:end), '--go','MarkerSize',10); hold on;
+plot(V1(6:interval:end),Vout(6:interval:end), '--go','MarkerSize',10, 'LineWidth', 1.5); hold on;
 
-
+ylim([-0.5,5.2]);
 title('Voltage transfer characteristics for below threshold');
 xlabel('Noninverting input voltage V_{1} (V)');
 ylabel('Output Voltage (V)');

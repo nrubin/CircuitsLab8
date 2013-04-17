@@ -16,8 +16,8 @@ load('Data/Experiment1Part8Data.mat')
 
 p = polyfit(Vcm(100:end),Vout(100:end),1);
 Vout_fit = p(1).*Vcm + p(2);
-plot(Vcm(1:interval:end),Vout(1:interval:end), 'ro','MarkerSize',10); hold on;
-plot(Vcm,Vout_fit); hold on;
+plot(Vcm(1:interval:end),Vout(1:interval:end), 'ro','MarkerSize',10,  'LineWidth', 1.5); hold on;
+plot(Vcm,Vout_fit, 'LineWidth', 2); hold on;
 
 title('Common-mode gain with bias voltage above threshold');
 xlabel('Common-mode Voltage V_{cm} (V)');
