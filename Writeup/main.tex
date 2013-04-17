@@ -8,17 +8,18 @@
 \usepackage{amssymb}
 \usepackage{color} 
 \usepackage{fancyvrb} 
+\newcommand{\Vout}{{$V_{out}$}}
 \newcommand{\Vb}{{$V_{b}$}}
+\newcommand{\Vcm}{{$V_{cm}$}}
+\newcommand{\Vdm}{{$V_{dm}$}}
 \newcommand{\Vtwo}{{$V_{2}$}}
 \newcommand{\Vone}{{$V_{1}$}}
 \newcommand{\Itwo}{{$I_{2}$}}
 \newcommand{\Ione}{{$I_{1}$}}
 \newcommand{\Vdd}{{$V_{dd}$}}
 \newcommand{\Iout}{{$I_{out}$}}
-\newcommand{\Vout}{{$V_{out}$}}
 \newcommand{\Vin}{{$V_{in}$}}
 \newcommand{\gm}{{$g_{m}$}}
-\newcommand{\Vdm}{{$V_{dm}$}}
 \newcommand{\Idm}{{$I_{dm}$}}
 \newcommand{\Icm}{{$I_{cm}$}}
 \newcommand{\Ib}{{$I_{b}$}}
@@ -46,36 +47,33 @@
 
 
 \section*{Experiment 1}
-We began by building a simple differential amplifier from a number of \nMOS transistors. We set the bias transistor just below threshold by applying a bias voltage of $V_B=0.6V$ We connected both inputs together such that the differential mode voltage was zero, and swept the common mode voltage from
-
-\textit{Ideally, Vout should be about as far below Vdd as V b is above ground and the
-common-mode gain should be negative with a magnitude on the order of a few percent. How
-does your common-mode gain compare to that? If it differs, why do you think that is the
-case?}
+We began by building a simple differential amplifier from an \nMOS differential pair and a \pMOS current mirror. We set the bias transistor just at threshold by applying a bias voltage of $V_B=0.6V$ We connected both inputs together such that the differential mode voltage was zero, and swept the common mode voltage from $+5V$ to $0V$, measuring the output voltage, \Vout. 
+A plot of \Vout as a function of \Vcm can be seen below in Figure \ref{fig:exp1p1}. For values of \Vcm greater than the bias voltage, $0.6V$, \Vout appears to change very little with large changes in \Vcm.  We determined the common-mode gain of the amplifier by applying a linear fit to the data. The linear fit found had a slope $-0.202$. Notably, the output voltage appeared to stabilize at approximately $4.3V$.
+Though we expected a negative common-mode gain on the order of a few percent, our gain is larger than expected, because XXXXXXXXXXX.
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=\linewidth]{../Figures/Exp1P1.eps}
-\caption{Something descriptive..}
+\caption{For values of \Vcm greater than the bias voltage, $0.6V$, \Vout appears to change very little with large changes in \Vcm.  We determined the common-mode gain of the amplifier by applying a linear fit to the data. The linear fit found had a slope $-0.202$.}
 \label{fig:exp1p1}
 \end{figure}
 
-\textit{Does the behavior of the circuit dffer substantially when biased in strong inversion compared to that which it exhibits in
-weak or moderate inversion?}
+We then connected \Vtwo to a constant voltage source and sweep \Vone from one $+5V$ to $0V$, measuring \Vout for \Vtwo set to three different voltages, $2V$, $3V$ and $4V$.
+
+The voltage transfer characteristic for these experiments, shown in Figure \ref{fig:exp1p2} show three major regions of operation: one in which \Vout increases linearly with a small slope relative to \Vone, when \Vone is less than \Vtwo; another in which \Vout rapidly increases to the positive rail over a small voltage range, when \Vone is slightly greater than \Vtwo; and a third, in which \Vout is pinned at the $+5V$ rail.
+
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=\linewidth]{../Figures/Exp1P2.eps}
-\caption{Something descriptive..}
+\caption{Note that the three series are similar in shape, with the point of inflection equaling the second input voltage for each series.}
 \label{fig:exp1p2}
 \end{figure}
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=\linewidth]{../Figures/Exp1P3.eps}
-\caption{Something descriptive..}
-\label{fig:exp1p3}
-\end{figure}
+
+Repeating the experiment with the bias transistor in strong inversion, with $V_b = 1.5V$, we found a similar pattern to the previous experiment, though the time-scale seemed to be extended.
+
+In the case of the common-mode gain, we found that \Vout ultimately achieved a voltage of roughly $3.8V$, roughly $0.5V$ less than in the weak inversion case. Further, \Vout changed even less relative to \Vcm when \Vcm was greater than \Vb. With the bias transitor strongly inverted, we found a common-mode gain of $-0.039$, a magntidue more similar to the value expected. Meanwhile, for common-mode voltages less than \Vb, \Vout changed far more rapidly.
 
 \begin{figure}[H]
 \centering
@@ -83,6 +81,22 @@ weak or moderate inversion?}
 \caption{Something descriptive..}
 \label{fig:exp1p4}
 \end{figure}
+
+When sweeping \Vdm through a range of values, we found that a similar relationship held, three major regions were found on the voltage transfer characteristic shown in Figure \ref{fig:exp1p3}:one in which \Vout increases linearly with a small slope relative to \Vone, when \Vone is less than \Vtwo; another in which \Vout rapidly increases to the positive rail over a small voltage range, when \Vone is slightly greater than \Vtwo; and a third, in which \Vout is pinned at the $+5V$ rail.
+One major difference between the behavior with the bias transistor in strong inversion was the rate at which \Vout changed when \Vone increased just past \Vtwo; the output voltage approached the $+5V$ rail more slowly than in the weak inversion case, and appeared to somewhat smooth the discontinuities found in the previous case, linking the three regions with a more sigmoidal shape.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{../Figures/Exp1P3.eps}
+\caption{Note that the three series are similar in shape, with the point of inflection equaling the second input voltage for each series.}
+\label{fig:exp1p3}
+\end{figure}
+
+
+\textit{Does the behavior of the circuit dffer substantially when biased in strong inversion compared to that which it exhibits in
+weak or moderate inversion?}
+
+
 
 \section*{Experiment 2}
 
