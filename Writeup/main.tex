@@ -30,6 +30,7 @@
 \newcommand{\Mthree}{{$M_{3}$}}
 \newcommand{\Mfour}{{$M_{4}$}}
 \newcommand{\Mb}{{$M_{b}$}}
+\newcommand{\Adm}{{$A_{dm}$}}
 \title{Circuits Lab 8}
 \author{Cory Dolphin and Noam Rubin}
 \date{\today}
@@ -100,12 +101,23 @@ weak or moderate inversion?}
 
 \section*{Experiment 2}
 
+We then studied the incremental properties of the differential amplifier, most importantly the differential-mode voltage gain, \Adm. We define
+
+\begin{equation}
+A_{dm} = \frac{\partial V_{out}}{\partial V_{dm}} = \frac{\partial V_{out} }{\partial I_{out} } \cdot \frac{\partial I_{out}}{\partial V_{dm}}
+\label{eq:adm}
+\end{equation}
+
+We can estimate \Adm for this circuit in two ways: the first is to measure \Vout as a function of \Vdm, and extracting the slope for small values of \Vdm. We can also collect curves for \Vout as a function of \Iout and \Iout as a function of \Vdm, and then multiply the linear region of those plots together in order to extract a value for \Adm.
+
 \begin{figure}[H]
 \centering
 \includegraphics[width=\linewidth]{../Figures/Exp2P1.eps}
 \caption{Something descriptive..}
 \label{fig:exp2p1}
 \end{figure}
+
+We first measured \Vout as we help \Vcm at 1.2 V and swept \Vdm from -0.5 V to 0.5 V. We plotted \Vout as a functions of \Vdm, as seen in figure \ref{fig:exp2p2} In order to get a large number of points in the high-gain region, we collected data at different densities,
 
 \begin{figure}[H]
 \centering
