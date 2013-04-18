@@ -2,7 +2,8 @@ load('Data\Experiment2Part2.mat')
 
 % 91 269
 coeffs = polyfit(Vout(120:230), Iout(120:230),1);
-plot(Vout,Iout,'o'); hold on;
+interval = 4;
+plot(Vout(1:interval:end),Iout(1:interval:end),'o', 'MarkerSize',10, 'LineWidth',1.5); hold on;
 plot(Vout,Vout * coeffs(1) + coeffs(2),'-','LineWidth',2);
 xlim([0 5]);
 ylim([-14e-4 2e-4]);
