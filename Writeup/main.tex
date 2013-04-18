@@ -112,7 +112,7 @@ We can estimate \Adm for this circuit in two ways: the first is to measure \Vout
 \begin{figure}[H]
 \centering
 \includegraphics[width=\linewidth]{../Figures/Exp2P1.eps}
-\caption{Something descriptive..}
+\caption{\Vout as a function of \Vdm. The interesting region in this graph is the near-vertical region around $|V_{out}| < 0.05 V$, as the slope of this region can be interpreted as \Adm, the differential mode voltage gain. From this plot we extracted an \Adm value of 62.4146.}
 \label{fig:exp2p1}
 \end{figure}
 
@@ -121,13 +121,13 @@ We first measured \Vout as we help \Vcm at 1.2 V and swept \Vdm from -0.5 V to 0
 \begin{figure}[H]
 \centering
 \includegraphics[width=\linewidth]{../Figures/Exp2P2.eps}
-\caption{Something descriptive..}
+\caption{\Iout as a function of \Vout. The inverse of the slope of the shallow region of this graph is \Ro, the incremental resistance of the circuit. We extracted a value of 190193.615 $\Omega$ for \Ro, and used this to calculate \Adm in a separate manner than simply taking the slope of the veritcal region in figure \ref{fig:exp2p1}.}
 \label{fig:exp2p2}
 \end{figure}
 
 We then fit a line to the steep linear region around $V_{dm} = \pm 0.005 V$, and used the slope to extract a value for \Adm. We fit to about 20 points along the line and found that $A_{dm} \approx 62.4146$. This large gain was theorized in the pre-lab (where we expected \Adm to be near infinite), but is not as large as expected. We expect \Vout to change drastically with \Vdm because the sign of \Vdm defines the flow of current, and opposite current flows likely cause large swings in \Vout. When $V_{dm} < 0$, $I_2 > I_1$, so \Vout lowers to allow more current through \Mfour, as \Mtwo pulls more current. Conversely, when $V_{dm} > 0$, $I_1 > I_2$, which causes \Vout to rise to prevent current flow through \Mfour, as \Mtwo cannot sink all of the current. We see the large swings in \Vout for small values of \Vdm as expected.
 
-We next took the approach of calculating \Rout and \Gm, and multiplying these two properties of the circuit together in order to extract a different value for \Adm. Figure \ref{fig:exp2p3} shows \Iout as a function of \Vout, with an extracted slope that represents $\frac{1}{R_{out}}$. Figure \ref{fig:exp2p3} shows \Iout as a function of \Vdm, with an extracted value for \Gm. From these lines we found that $R_out = 190193.6154 \Omega$ and $G_m = 0.00044197 \Omega^{-1}$, which results in an extracted value for the differential mode gain of 84.0599.
+We next took the approach of calculating \Rout and \Gm, and multiplying these two properties of the circuit together in order to extract a different value for \Adm. Figure \ref{fig:exp2p3} shows \Iout as a function of \Vout, with an extracted slope that represents $\frac{1}{R_{out}}$. Figure \ref{fig:exp2p3} shows \Iout as a function of \Vdm, with an extracted value for \Gm. From these lines we found that $R_out = 190193.6154 \Omega$ and $G_m = 0.00044197 \Omega^{-1}$, which results in an extracted value for the differential mode gain of 84.0599. This is higher than the value we extracted from figure \ref{fig:exp2p1}, which could be due to compound error in the separate experiments or lines that don't exactly match the data they are fit to. Regardless, we see that \Adm is large, which is what we expect.
 
 \begin{figure}[H]
 \centering
@@ -136,10 +136,14 @@ We next took the approach of calculating \Rout and \Gm, and multiplying these tw
 \label{fig:exp2p3}
 \end{figure}
 
-\textit{How does this value of for the differential-mode gain compare to that which you obtained directly from the slope of the
-VTC? How does the differential-mode voltage gain of the circuit compare to the common-mode voltage gain of the circuit that you found in Experiment 1? Compute a CMRR for the circuit from the ratio of the differential-mode voltage gain to the common-mode voltage
-gain that you found in Experiment 1.}
 
+An important attribute of a differential voltage amplifier is the Common-Mode-Rejection-Ratio, which we call the CMRR and is defined as:
+
+\begin{equation}
+CMRR = 20\textrm{log}_{10}(\frac{A_{dm}}{|A_{cm}|})
+\end{equation}
+
+For the value of \Adm derived from figure \ref{fig:exp2p1}, we found that the CMRR of this circuit is 49.7987, and for the \Adm value derived using figures \ref{fig:exp2p2} and \ref{fig:exp2p3}, the CMRR of this circuit is 52.3847. These two values for the CMRR are not very different, which indicates that the two different values of \Adm we calculated may not significantly affect the circuit behavior.
 
 \section*{Experiment 3} 
 
