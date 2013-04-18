@@ -19,7 +19,7 @@
 \newcommand{\Vdd}{{$V_{dd}$}}
 \newcommand{\Iout}{{$I_{out}$}}
 \newcommand{\Vin}{{$V_{in}$}}
-\newcommand{\gm}{{$g_{m}$}}
+\newcommand{\Gm}{{$G_{m}$}}
 \newcommand{\Idm}{{$I_{dm}$}}
 \newcommand{\Icm}{{$I_{cm}$}}
 \newcommand{\Ib}{{$I_{b}$}}
@@ -31,6 +31,7 @@
 \newcommand{\Mfour}{{$M_{4}$}}
 \newcommand{\Mb}{{$M_{b}$}}
 \newcommand{\Adm}{{$A_{dm}$}}
+\newcommand{\Rout}{{$R_{out}$}}
 \title{Circuits Lab 8}
 \author{Cory Dolphin and Noam Rubin}
 \date{\today}
@@ -117,7 +118,7 @@ We can estimate \Adm for this circuit in two ways: the first is to measure \Vout
 \label{fig:exp2p1}
 \end{figure}
 
-We first measured \Vout as we help \Vcm at 1.2 V and swept \Vdm from -0.5 V to 0.5 V. We plotted \Vout as a functions of \Vdm, as seen in figure \ref{fig:exp2p2} In order to get a large number of points in the high-gain region, we collected data at different densities,
+We first measured \Vout as we help \Vcm at 1.2 V and swept \Vdm from -0.5 V to 0.5 V. We plotted \Vout as a functions of \Vdm, as seen in figure \ref{fig:exp2p1}. In order to get a large number of points in the high-gain region, we collected data at different densities along \Vdm.
 
 \begin{figure}[H]
 \centering
@@ -125,6 +126,10 @@ We first measured \Vout as we help \Vcm at 1.2 V and swept \Vdm from -0.5 V to 0
 \caption{Something descriptive..}
 \label{fig:exp2p2}
 \end{figure}
+
+We then fit a line to the steep linear region around $V_{dm} = \pm 0.005 V$, and used the slope to extract a value for \Adm. We fit to about 20 points along the line and found that $A_{dm} \approx 62.4146$. This large gain was theorized in the pre-lab (where we expected \Adm to be near infinite), but is not as large as expected. We expect \Vout to change drastically with \Vdm because the sign of \Vdm defines the flow of current, and opposite current flows likely cause large swings in \Vout. When $V_{dm} < 0$, $I_2 > I_1$, so \Vout lowers to allow more current through \Mfour, as \Mtwo pulls more current. Conversely, when $V_{dm} > 0$, $I_1 > I_2$, which causes \Vout to rise to prevent current flow through \Mfour, as \Mtwo cannot sink all of the current. We see the large swings in \Vout for small values of \Vdm as expected.
+
+We next took the approach of calculating \Rout and \Gm, and multiplying these two properties of the circuit together in order to extract a different value for \Adm. Figure \ref{fig:exp2p3} shows \Iout as a function of \Vout, with an extracted slope that represents $\frac{1}{R_{out}}$. Figure \ref{fig:exp2p3} shows \Iout as a function of \Vdm, with an extracted value for \Gm. From these lines we found that $R_out = 190193.6154 \Omega$ and $G_m = 0.00044197 \Omega^{-1}$, which results in an extracted value for the differential mode gain of 84.0599.
 
 \begin{figure}[H]
 \centering
