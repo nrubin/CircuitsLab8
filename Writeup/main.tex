@@ -32,6 +32,7 @@
 \newcommand{\Mb}{{$M_{b}$}}
 \newcommand{\Adm}{{$A_{dm}$}}
 \newcommand{\Rout}{{$R_{out}$}}
+\newcommand{\Ro}{{$R_{o}$}}
 \title{Circuits Lab 8}
 \author{Cory Dolphin and Noam Rubin}
 \date{\today}
@@ -50,8 +51,8 @@
 
 \section*{Experiment 1}
 We began by building a simple differential amplifier from an \nMOS differential pair and a \pMOS current mirror. We set the bias transistor just at threshold by applying a bias voltage of $V_B=0.6V$ We connected both inputs together such that the differential mode voltage was zero, and swept the common mode voltage from $+5V$ to $0V$, measuring the output voltage, \Vout. 
-A plot of \Vout as a function of \Vcm can be seen below in Figure \ref{fig:exp1p1}. For values of \Vcm greater than the bias voltage, $0.6V$, \Vout appears to change very little with large changes in \Vcm.  We determined the common-mode gain of the amplifier by applying a linear fit to the data. The linear fit found had a slope $-0.202$. Notably, the output voltage appeared to stabilize at approximately $4.3V$.
-Though we expected a negative common-mode gain on the order of a few percent, our gain is larger than expected, because XXXXXXXXXXX.
+A plot of \Vout as a function of \Vcm can be seen below in Figure \ref{fig:exp1p1}. For values of \Vcm greater than the bias voltage, $0.6V$, \Vout appears to change very little with large changes in \Vcm.  We determined the common-mode gain of the amplifier by applying a linear fit to the data. The linear fit found had a slope $-0.202$, thus from our data, we experimentally found $A_{cm} = -0.202$. Notably, the output voltage appeared to stabilize at approximately $4.3V$.
+Though we expected a negative common-mode gain on the order of a few percent, our gain is larger than expected, on the order of a tens of percents, instead of percents. This is likely caused by transistor mismatch.
 
 \begin{figure}[H]
 \centering
@@ -75,7 +76,7 @@ The voltage transfer characteristic for these experiments, shown in Figure \ref{
 
 Repeating the experiment with the bias transistor in strong inversion, with $V_b = 1.5V$, we found a similar pattern to the previous experiment, though the time-scale seemed to be extended.
 
-In the case of the common-mode gain, we found that \Vout ultimately achieved a voltage of roughly $3.8V$, roughly $0.5V$ less than in the weak inversion case. Further, \Vout changed even less relative to \Vcm when \Vcm was greater than \Vb. With the bias transitor strongly inverted, we found a common-mode gain of $-0.039$, a magntidue more similar to the value expected. Meanwhile, for common-mode voltages less than \Vb, \Vout changed far more rapidly.
+In the case of the common-mode gain, we found that \Vout ultimately achieved a voltage of roughly $3.8V$, roughly $0.5V$ less than in the weak inversion case. Further, \Vout changed even less relative to \Vcm when \Vcm was greater than \Vb. With the bias transistor strongly inverted, we found a common-mode gain of $-0.039$, a magnitude more similar to the value expected. Meanwhile, for common-mode voltages less than \Vb, \Vout changed far more rapidly.
 
 \begin{figure}[H]
 \centering
@@ -95,9 +96,7 @@ One major difference between the behavior with the bias transistor in strong inv
 \end{figure}
 
 
-\textit{Does the behavior of the circuit dffer substantially when biased in strong inversion compared to that which it exhibits in
-weak or moderate inversion?}
-
+The behavior of the circuit does not seem to differ substantially when biased in strong inversion, when compared to that which it exhibits in weak inversion. The major difference is the somewhat diluted affect of $V_{dm}$, that is to say, when in strong inversion, larger swings in \Vdm were necessary to produce similar changes in \Vout. This can be seen in the comparison of Figure \ref{fig:exp1p4} and Figure \ref{fig:exp1p2}, where the abrupt discontinuities seen in weak inversion are smoothed out in strong inversion, as can be seen by the rounding of the sharp angles.
 
 
 \section*{Experiment 2}
@@ -123,7 +122,7 @@ We first measured \Vout as we help \Vcm at 1.2 V and swept \Vdm from -0.5 V to 0
 \begin{figure}[H]
 \centering
 \includegraphics[width=\linewidth]{../Figures/Exp2P2.eps}
-\caption{\Iout as a function of \Vout. The inverse of the slope of the shallow region of this graph is \Ro, the incremental resistance of the circuit. We extracted a value of 190193.615 $\Omega$ for \Ro, and used this to calculate \Adm in a separate manner than simply taking the slope of the veritcal region in figure \ref{fig:exp2p1}.}
+\caption{\Iout as a function of \Vout. The inverse of the slope of the shallow region of this graph is \Ro, the incremental resistance of the circuit. We extracted a value of 190193.615 $\Omega$ for \Ro, and used this to calculate \Adm in a separate manner than simply taking the slope of the vertical region in figure \ref{fig:exp2p1}}
 \label{fig:exp2p2}
 \end{figure}
 
@@ -137,6 +136,7 @@ We next took the approach of calculating \Rout and \Gm, and multiplying these tw
 \caption{\Iout as a function of \Vdm. The slope of the linear region of this plot, around $|V_{out}| < 0.05 V$, can be used to extract \Gm, the incremental transconductance gain of this circuit. We extracted a value of 0.00044197 $\Omega^{-1}$ for \Gm, and used this value to calculate \Adm.}
 \label{fig:exp2p3}
 \end{figure}
+
 
 An important attribute of a differential voltage amplifier is the Common-Mode-Rejection-Ratio, which we call the CMRR and is defined as:
 
@@ -155,7 +155,7 @@ For the value of \Adm derived from figure \ref{fig:exp2p1}, we found that the CM
 \label{fig:voltagefollow}
 \end{figure}
 
-The last experiment we conducted involved connecting the inverting input of the differential amplifier, \Vtwo, to the outpout of the differential amplifier, \Vout. We expected the circuit to then behave like a unity-gain voltage follower, as seen in figure \ref{fig:voltagefollow}. In a unity-gain voltage follower, the output follows the non-inverting input, so we expect the ratio between \Vout and \Vin to be 1.
+The last experiment we conducted involved connecting the inverting input of the differential amplifier, \Vtwo, to the output of the differential amplifier, \Vout. We expected the circuit to then behave like a unity-gain voltage follower, as seen in figure \ref{fig:voltagefollow}. In a unity-gain voltage follower, the output follows the non-inverting input, so we expect the ratio between \Vout and \Vin to be 1.
 
 \begin{figure}[H]
 \centering
