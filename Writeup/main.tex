@@ -49,8 +49,8 @@
 
 \section*{Experiment 1}
 We began by building a simple differential amplifier from an \nMOS differential pair and a \pMOS current mirror. We set the bias transistor just at threshold by applying a bias voltage of $V_B=0.6V$ We connected both inputs together such that the differential mode voltage was zero, and swept the common mode voltage from $+5V$ to $0V$, measuring the output voltage, \Vout. 
-A plot of \Vout as a function of \Vcm can be seen below in Figure \ref{fig:exp1p1}. For values of \Vcm greater than the bias voltage, $0.6V$, \Vout appears to change very little with large changes in \Vcm.  We determined the common-mode gain of the amplifier by applying a linear fit to the data. The linear fit found had a slope $-0.202$. Notably, the output voltage appeared to stabilize at approximately $4.3V$.
-Though we expected a negative common-mode gain on the order of a few percent, our gain is larger than expected, because XXXXXXXXXXX.
+A plot of \Vout as a function of \Vcm can be seen below in Figure \ref{fig:exp1p1}. For values of \Vcm greater than the bias voltage, $0.6V$, \Vout appears to change very little with large changes in \Vcm.  We determined the common-mode gain of the amplifier by applying a linear fit to the data. The linear fit found had a slope $-0.202$, thus from our data, we experimentally found $A_{cm} = -0.202$. Notably, the output voltage appeared to stabilize at approximately $4.3V$.
+Though we expected a negative common-mode gain on the order of a few percent, our gain is larger than expected, on the order of a tens of percents, instead of percents. This is likely caused by transistor mismatch.
 
 \begin{figure}[H]
 \centering
@@ -74,7 +74,7 @@ The voltage transfer characteristic for these experiments, shown in Figure \ref{
 
 Repeating the experiment with the bias transistor in strong inversion, with $V_b = 1.5V$, we found a similar pattern to the previous experiment, though the time-scale seemed to be extended.
 
-In the case of the common-mode gain, we found that \Vout ultimately achieved a voltage of roughly $3.8V$, roughly $0.5V$ less than in the weak inversion case. Further, \Vout changed even less relative to \Vcm when \Vcm was greater than \Vb. With the bias transitor strongly inverted, we found a common-mode gain of $-0.039$, a magntidue more similar to the value expected. Meanwhile, for common-mode voltages less than \Vb, \Vout changed far more rapidly.
+In the case of the common-mode gain, we found that \Vout ultimately achieved a voltage of roughly $3.8V$, roughly $0.5V$ less than in the weak inversion case. Further, \Vout changed even less relative to \Vcm when \Vcm was greater than \Vb. With the bias transistor strongly inverted, we found a common-mode gain of $-0.039$, a magnitude more similar to the value expected. Meanwhile, for common-mode voltages less than \Vb, \Vout changed far more rapidly.
 
 \begin{figure}[H]
 \centering
@@ -94,9 +94,7 @@ One major difference between the behavior with the bias transistor in strong inv
 \end{figure}
 
 
-\textit{Does the behavior of the circuit dffer substantially when biased in strong inversion compared to that which it exhibits in
-weak or moderate inversion?}
-
+The behavior of the circuit does not seem to differ substantially when biased in strong inversion, when compared to that which it exhibits in weak inversion. The major difference is the somewhat diluted affect of $V_{dm}$, that is to say, when in strong inversion, larger swings in \Vdm were necessary to produce similar changes in \Vout. This can be seen in the comparison of Figure \ref{fig:exp1p4} and Figure \ref{fig:exp1p2}, where the abrupt discontinuities seen in weak inversion are smoothed out in strong inversion, as can be seen by the rounding of the sharp angles.
 
 
 \section*{Experiment 2}
@@ -134,7 +132,7 @@ We first measured \Vout as we help \Vcm at 1.2 V and swept \Vdm from -0.5 V to 0
 \end{figure}
 
 \textit{How does this value of for the differential-mode gain compare to that which you obtained directly from the slope of the
-VTC? How does the differential-mode voltage gain of the circuit compare to the commonmode voltage gain of the circuit that you found in Experiment 1? Compute a CMRR for the circuit from the ratio of the differential-mode voltage gain to the common-mode voltage
+VTC? How does the differential-mode voltage gain of the circuit compare to the common-mode voltage gain of the circuit that you found in Experiment 1? Compute a CMRR for the circuit from the ratio of the differential-mode voltage gain to the common-mode voltage
 gain that you found in Experiment 1.}
 
 
@@ -147,7 +145,7 @@ gain that you found in Experiment 1.}
 \label{fig:voltagefollow}
 \end{figure}
 
-The last experiment we conducted involved connecting the inverting input of the differential amplifier, \Vtwo, to the outpout of the differential amplifier, \Vout. We expected the circuit to then behave like a unity-gain voltage follower, as seen in figure \ref{fig:voltagefollow}. In a unity-gain voltage follower, the output follows the non-inverting input, so we expect the ratio between \Vout and \Vin to be 1.
+The last experiment we conducted involved connecting the inverting input of the differential amplifier, \Vtwo, to the output of the differential amplifier, \Vout. We expected the circuit to then behave like a unity-gain voltage follower, as seen in figure \ref{fig:voltagefollow}. In a unity-gain voltage follower, the output follows the non-inverting input, so we expect the ratio between \Vout and \Vin to be 1.
 
 \begin{figure}[H]
 \centering
